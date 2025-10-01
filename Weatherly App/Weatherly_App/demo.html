@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show cur location</title>
+    <script>
+        function getMyLocation(){
+            const para = document.querySelector("p");
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    para.innerText=`Your location: latitude${position.coords.latitude}`;
+                },
+            (error) =>{
+            para.innerText = `could not get the location: ${error.message}`;
+            }
+        );
+        }
+    </script>
+</head>
+<body>
+    <p id="details"></p>
+    <button onclick="getMyLocation()">Show My Location</button>
+ </body>
+</html>
